@@ -1,6 +1,48 @@
-baseURL: https://example.org/
-languageCode: en-us
-title: My New Hugo Site
+
+################################################################################
+#            _                                          _
+#           | |__  _   _  __ _  _____   ____ _ ____  __| | _____   __
+#           | '_ \| | | |/ _` |/ _ \ \ / / _` |_  / / _` |/ _ \ \ / /
+#           | | | | |_| | (_| | (_) \ V / (_| |/ / | (_| |  __/\ V /
+#           |_| |_|\__,_|\__, |\___/ \_/ \__,_/___(_)__,_|\___| \_/
+#                        |___/
+#
+#   autor: Hugo Martins Vaz Silva
+#   email: hugomartinsvaz@gmail.com
+#
+################################################################################
+
+# GENERAL CONFIG
+title: hugovaz.dev
+baseURL: https://hugovaz.dev
+
+
+# LANGUAGE CONFIG
+languageCode: pt-br
+defaultContentLanguage: pt
+languages:
+  pt:
+    languageName: Português
+    weight: 1
+  en:
+    languageName: English
+    weight: 2
+
+
+# MENU CONFIG
+menu:
+  main:
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+    - name: GitHub
+      weight: 2
+      url: "https://github.com/Hugo0Vaz"
+      params:
+        icon: github
+
+
+# MODULE CONFIG
 module:
   imports:
     - path: github.com/imfing/hextra
