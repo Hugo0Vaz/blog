@@ -12,12 +12,9 @@
 #
 ################################################################################
 
-# GENERAL CONFIG
 title: hugovaz.dev
 baseURL: https://hugovaz.dev
 
-
-# LANGUAGE CONFIG
 languageCode: pt-br
 defaultContentLanguage: pt
 languages:
@@ -28,21 +25,29 @@ languages:
     languageName: English
     weight: 2
 
-
-# MENU CONFIG
 menu:
   main:
     - name: Blog
       pageRef: /blog
       weight: 1
     - name: GitHub
-      weight: 2
+      weight: 5
       url: "https://github.com/Hugo0Vaz"
       params:
         icon: github
+    - name: Search
+      weight: 4
+      params:
+        type: search
 
+params:
+  theme:
+    default: light
+    displayToggle: false
+  navbar:
+    displayTitle: true
+    displayLogo: false
 
-# MODULE CONFIG
 module:
   imports:
     - path: github.com/imfing/hextra
