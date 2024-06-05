@@ -2,4 +2,4 @@ dev:
 	@hugo server
 
 build:
-	@hugo build
+	@hugo --minify --cleanDestinationDir --baseURL "https://hugovaz.dev"
