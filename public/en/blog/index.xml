@@ -1,92 +1,62 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>hugovaz.dev – </title>
-    <link>http://localhost:1313/en/blog/</link>
-    <description>Recent content on hugovaz.dev</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    
-	  <atom:link href="http://localhost:1313/en/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Separation of Concearns versus Locality of Behaviour</title>
-      <link>http://localhost:1313/en/blog/soc-vs-lob/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/en/blog/soc-vs-lob/</guid>
-      <description>
-        
-        
-        &lt;h2&gt;Introduction&lt;span class=&#34;absolute -mt-20&#34; id=&#34;introduction&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#introduction&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;TODO: create introduction.&lt;/p&gt;
-&lt;h2&gt;What is Separations of Concearns?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;what-is-separations-of-concearns&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#what-is-separations-of-concearns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system&amp;rsquo;s functionality. A &amp;ldquo;concern&amp;rdquo; in this context refers to a particular feature, behavior or piece of functionality that a program must implement.&lt;/p&gt;
-&lt;h3&gt;Key Aspects of Separation of Concerns:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;key-aspects-of-separation-of-concerns&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#key-aspects-of-separation-of-concerns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Modularity&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Encapsulation&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Independence&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Maintainability&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reusability&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Testability&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Improved Code Organization&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Simplified Debugging and Maintenance&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enhanced Collaboration&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Scalability&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;Examples of Separation of Concerns:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;examples-of-separation-of-concerns&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#examples-of-separation-of-concerns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;MVC Pattern (Model-View-Controller)&lt;/strong&gt;: in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Microservices Architecture&lt;/strong&gt;: in a microservices architecture, different services are responsible for different business capabilities. Each service handles a specific concern, and services communicate with each other through well-defined APIs.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Layered Architecture&lt;/strong&gt;: applications are often divided into layers such as presentation, business logic, and data access layers. Each layer addresses a specific concern and interacts with adjacent layers through defined interfaces.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;What is Locality of Bahaviour?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;what-is-locality-of-bahaviour&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#what-is-locality-of-bahaviour&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Locality of Behavior is a software design principle that emphasizes keeping related functionality and behaviors close together within the codebase. This principle aims to enhance code readability and maintainability by ensuring that code elements that interact frequently or belong to the same logical operation are grouped together.&lt;/p&gt;
-&lt;h3&gt;Key Aspects of Locality of Behavior:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;key-aspects-of-locality-of-behavior&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#key-aspects-of-locality-of-behavior&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Proximity&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cohesion&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Readability&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Maintainability&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Simplified Debugging&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enhanced Collaboration&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reduced Cognitive Load&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;Examples of Locality of Behavior:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;examples-of-locality-of-behavior&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#examples-of-locality-of-behavior&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Class Methods&lt;/strong&gt;: in object-oriented programming, methods related to a particular class’s behavior are defined within that class. For instance, all methods manipulating an object’s state are found within that object&amp;rsquo;s class.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Modules and Packages&lt;/strong&gt;: in modular programming, related functions and classes are grouped into modules and packages. This organization ensures that all related code is contained within a single module, making it easier to locate and manage.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Functions and Closures&lt;/strong&gt;: in functional programming, functions that operate on the same data or achieve the same goal are often defined in close proximity. Closures can be used to keep related data and functions together.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;LoB over SoC: the hot take&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lob-over-soc-the-hot-take&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#lob-over-soc-the-hot-take&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;My thoughts on LoB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;my-thoughts-on-lob&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#my-thoughts-on-lob&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;As a software designer I live by a couple of principles:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;I&amp;rsquo;m a &lt;a href=&#34;https://grugbrain.dev/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grug brain developer (brain very smol)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Premature Optimization is the root of all evil&amp;rdquo; - &lt;a href=&#34;https://en.wikipedia.org/wiki/Donald_Knuth&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Donald Knuth&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;If it ain&amp;rsquo;t broke, don&amp;rsquo;t fix it.&lt;/li&gt;
-&lt;/ol&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugovaz.dev –</title><link>https://hugovaz.dev/en/blog/</link><description>Recent content on hugovaz.dev</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://hugovaz.dev/en/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Separation of Concearns versus Locality of Behaviour</title><link>https://hugovaz.dev/en/blog/soc-vs-lob/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hugovaz.dev/en/blog/soc-vs-lob/</guid><description>
+&lt;h2>Introduction&lt;span class="absolute -mt-20" id="introduction">&lt;/span>
+&lt;a href="#introduction" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>TODO: create introduction.&lt;/p>
+&lt;h2>What is Separations of Concearns?&lt;span class="absolute -mt-20" id="what-is-separations-of-concearns">&lt;/span>
+&lt;a href="#what-is-separations-of-concearns" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system&amp;rsquo;s functionality. A &amp;ldquo;concern&amp;rdquo; in this context refers to a particular feature, behavior or piece of functionality that a program must implement.&lt;/p>
+&lt;h3>Key Aspects of Separation of Concerns:&lt;span class="absolute -mt-20" id="key-aspects-of-separation-of-concerns">&lt;/span>
+&lt;a href="#key-aspects-of-separation-of-concerns" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>Modularity&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Encapsulation&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Independence&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Maintainability&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Reusability&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Testability&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Improved Code Organization&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Simplified Debugging and Maintenance&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Enhanced Collaboration&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Scalability&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h3>Examples of Separation of Concerns:&lt;span class="absolute -mt-20" id="examples-of-separation-of-concerns">&lt;/span>
+&lt;a href="#examples-of-separation-of-concerns" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>MVC Pattern (Model-View-Controller)&lt;/strong>: in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Microservices Architecture&lt;/strong>: in a microservices architecture, different services are responsible for different business capabilities. Each service handles a specific concern, and services communicate with each other through well-defined APIs.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Layered Architecture&lt;/strong>: applications are often divided into layers such as presentation, business logic, and data access layers. Each layer addresses a specific concern and interacts with adjacent layers through defined interfaces.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2>What is Locality of Bahaviour?&lt;span class="absolute -mt-20" id="what-is-locality-of-bahaviour">&lt;/span>
+&lt;a href="#what-is-locality-of-bahaviour" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Locality of Behavior is a software design principle that emphasizes keeping related functionality and behaviors close together within the codebase. This principle aims to enhance code readability and maintainability by ensuring that code elements that interact frequently or belong to the same logical operation are grouped together.&lt;/p>
+&lt;h3>Key Aspects of Locality of Behavior:&lt;span class="absolute -mt-20" id="key-aspects-of-locality-of-behavior">&lt;/span>
+&lt;a href="#key-aspects-of-locality-of-behavior" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>Proximity&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cohesion&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Readability&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Maintainability&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Simplified Debugging&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Enhanced Collaboration&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Reduced Cognitive Load&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h3>Examples of Locality of Behavior:&lt;span class="absolute -mt-20" id="examples-of-locality-of-behavior">&lt;/span>
+&lt;a href="#examples-of-locality-of-behavior" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Class Methods&lt;/strong>: in object-oriented programming, methods related to a particular class’s behavior are defined within that class. For instance, all methods manipulating an object’s state are found within that object&amp;rsquo;s class.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Modules and Packages&lt;/strong>: in modular programming, related functions and classes are grouped into modules and packages. This organization ensures that all related code is contained within a single module, making it easier to locate and manage.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Functions and Closures&lt;/strong>: in functional programming, functions that operate on the same data or achieve the same goal are often defined in close proximity. Closures can be used to keep related data and functions together.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2>LoB over SoC: the hot take&lt;span class="absolute -mt-20" id="lob-over-soc-the-hot-take">&lt;/span>
+&lt;a href="#lob-over-soc-the-hot-take" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;h3>My thoughts on LoB&lt;span class="absolute -mt-20" id="my-thoughts-on-lob">&lt;/span>
+&lt;a href="#my-thoughts-on-lob" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>As a software designer I live by a couple of principles:&lt;/p>
+&lt;ol>
+&lt;li>I&amp;rsquo;m a &lt;a href="https://grugbrain.dev/" target="_blank" rel="noopener">grug brain developer (brain very smol)&lt;/a>.&lt;/li>
+&lt;li>&amp;ldquo;Premature Optimization is the root of all evil&amp;rdquo; - &lt;a href="https://en.wikipedia.org/wiki/Donald_Knuth" target="_blank" rel="noopener">&lt;em>Donald Knuth&lt;/em>&lt;/a>.&lt;/li>
+&lt;li>If it ain&amp;rsquo;t broke, don&amp;rsquo;t fix it.&lt;/li>
+&lt;/ol></description></item></channel></rss>

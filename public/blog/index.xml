@@ -1,220 +1,167 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>hugovaz.dev – Blog</title>
-    <link>http://localhost:1313/blog/</link>
-    <description>Recent content in Blog on hugovaz.dev</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt</language>
-    
-	  <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Gerenciadores de pacotes e proxies</title>
-      <link>http://localhost:1313/notes/dealing-with-proxy-on-linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/dealing-with-proxy-on-linux/</guid>
-      <description>
-        
-        
-        &lt;h1&gt;APT &amp;amp; Squid Proxy&lt;/h1&gt;&lt;p&gt;Quando nos encontramos atrás de um proxy o APT tem problemas em fazer &lt;em&gt;requests&lt;/em&gt; se as configurações de proxy não estiverem presentes.&lt;/p&gt;
-&lt;p&gt;Para solucionar o problema basta seguir os passos:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;crie o arquivo de configuração&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo touch /etc/apt/apt.conf.d/proxy.conf&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;edite o arquivo de configuração&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vi /etc/apt/apt.conf.d/proxy.conf&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;edite a configuração específica do seu caso para os casos de &lt;code&gt;http&lt;/code&gt; e &lt;code&gt;https&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Acquire::http::Proxy &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://user:password@proxy.server:port/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Acquire::https::Proxy &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://user:password@proxy.server:port/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;ou&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Acquire &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  HTTP::proxy &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://127.0.0.1:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  HTTPS::proxy &lt;span class=&#34;s2&#34;&gt;&amp;#34;http://127.0.0.1:8080&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h1&gt;Zypper &amp;amp; Squid Proxy&lt;/h1&gt;&lt;p&gt;Quando nos encontramos atrás de um proxy o Zypper tem problemas em fazer &lt;em&gt;requests&lt;/em&gt; se as configurações de proxy não estiverem presentes.&lt;/p&gt;
-&lt;p&gt;Para solucionar o problema basta fazer:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Edite o arquivo: &lt;code&gt;/etc/sysconfig/proxy&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;PROXY_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;yes&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;HTTP_PROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;http://192.168.0.1:3128&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;HTTPS_PROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;http://192.168.0.1:3128&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;FTP_PROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;http://192.168.0.1:3128&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;NO_PROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;localhost, 127.0.0.1&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Hardening Linux Servers</title>
-      <link>http://localhost:1313/notes/hardening-linux-servers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/notes/hardening-linux-servers/</guid>
-      <description>
-        
-        
-        &lt;h1&gt;1. Update &amp;amp;&amp;amp; Upgrade dos pacotes do sistema&lt;/h1&gt;&lt;p&gt;Faça o update e upgrade dos pacotes de acordo com a distribuição de Linux.&lt;/p&gt;
-&lt;div class=&#34;mt-4 flex w-max min-w-full border-b border-gray-200 pb-px dark:border-neutral-800&#34;&gt;&lt;button
-      class=&#34;tabs-toggle data-[state=selected]:border-primary-500 data-[state=selected]:text-primary-600 mr-2 rounded-t p-2 font-medium leading-5 transition-colors -mb-0.5 select-none border-b-2 border-transparent text-gray-600 hover:border-gray-200 hover:text-black dark:text-gray-200 dark:hover:border-neutral-800 dark:hover:text-white&#34;
-      role=&#34;tab&#34;
-      type=&#34;button&#34;
-      aria-controls=&#34;tabs-panel-0&#34;
-      aria-selected=&#34;true&#34;
-      tabindex=&#34;0&#34;
-      data-state=&#34;selected&#34;
-    &gt;Debian&lt;/button&gt;&lt;button
-      class=&#34;tabs-toggle data-[state=selected]:border-primary-500 data-[state=selected]:text-primary-600 mr-2 rounded-t p-2 font-medium leading-5 transition-colors -mb-0.5 select-none border-b-2 border-transparent text-gray-600 hover:border-gray-200 hover:text-black dark:text-gray-200 dark:hover:border-neutral-800 dark:hover:text-white&#34;
-      role=&#34;tab&#34;
-      type=&#34;button&#34;
-      aria-controls=&#34;tabs-panel-1&#34;
-      
-      
-      
-    &gt;Ubuntu&lt;/button&gt;&lt;/div&gt;
-&lt;div&gt;
-  
-    &lt;div
-  class=&#34;tabs-panel rounded pt-6 hidden data-[state=selected]:block&#34;
-  id=&#34;tabs-panel-0&#34;
-  role=&#34;tabpanel&#34;
-  tabindex=&#34;0&#34;
-  data-state=&#34;selected&#34;
-&gt;
-  &lt;code&gt;apt update &amp;amp;&amp;amp; apt upgrade&lt;/code&gt;
-&lt;/div&gt;
-
-    &lt;div
-  class=&#34;tabs-panel rounded pt-6 hidden data-[state=selected]:block&#34;
-  id=&#34;tabs-panel-1&#34;
-  role=&#34;tabpanel&#34;
-  
-  
-&gt;
-  &lt;code&gt;apt update &amp;amp;&amp;amp; apt upgrade&lt;/code&gt;
-&lt;/div&gt;
-
-
-&lt;/div&gt;
-
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h1&gt;2. Configurar o Hostname da máquina, com FQDN.&lt;/h1&gt;&lt;p&gt;Configurar o &lt;em&gt;hostname&lt;/em&gt; do servidor pode facilitar a configuração de outros serviços.&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hostnamectl set-hostname server1.example.com&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h1&gt;3. Criar um usuário diferente de root para o login&lt;/h1&gt;&lt;p&gt;Crie um usuário que possua privelégios &lt;code&gt;root&lt;/code&gt; para que o login de &lt;code&gt;SSH&lt;/code&gt; seja feito principalmente por ele.&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;useradd -s /bin/bash -m user
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;usermod -aG root user&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h1&gt;4. SSH Security&lt;/h1&gt;&lt;p&gt;Podemos tomar algumas medidas de segurança para proteger as conexões de SSH&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Remover acesso através de senha para o usuário &lt;code&gt;root&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Mudar porta de acesso &lt;code&gt;default=22&lt;/code&gt; do SSH&lt;/li&gt;
-&lt;/ol&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h1&gt;4. Firewall&lt;/h1&gt;&lt;p&gt;As portas básicas que precisamos para manter um servidor &lt;em&gt;&lt;strong&gt;Web&lt;/strong&gt;&lt;/em&gt; (assumindo http e https).&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;22 (SSH)&lt;/li&gt;
-&lt;li&gt;80/tcp&lt;/li&gt;
-&lt;li&gt;443/tcp&lt;/li&gt;
-&lt;li&gt;8000/tcp (Coolify)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h1&gt;Referências&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.rackspace.com/docs/linux-hostname-change&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Hostname Change&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.redhat.com/sysadmin/configure-hostname-linux&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Configure Hostname Linux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.ionos.com/help/server-cloud-infrastructure/getting-started/important-security-information-for-your-server/deactivating-the-ssh-root-login/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deactivating the SSH root login&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to disable ssh password login on Linux&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugovaz.dev – Blog</title><link>https://hugovaz.dev/blog/</link><description>Recent content in Blog on hugovaz.dev</description><generator>Hugo -- gohugo.io</generator><language>pt</language><atom:link href="https://hugovaz.dev/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Gerenciadores de pacotes e proxies</title><link>https://hugovaz.dev/notes/dealing-with-proxy-on-linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hugovaz.dev/notes/dealing-with-proxy-on-linux/</guid><description>
+&lt;h1>APT &amp;amp; Squid Proxy&lt;/h1>&lt;p>Quando nos encontramos atrás de um proxy o APT tem problemas em fazer &lt;em>requests&lt;/em> se as configurações de proxy não estiverem presentes.&lt;/p>
+&lt;p>Para solucionar o problema basta seguir os passos:&lt;/p>
+&lt;ol>
+&lt;li>crie o arquivo de configuração&lt;/li>
+&lt;/ol>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo touch /etc/apt/apt.conf.d/proxy.conf&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;ol start="2">
+&lt;li>edite o arquivo de configuração&lt;/li>
+&lt;/ol>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo vi /etc/apt/apt.conf.d/proxy.conf&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;ol start="3">
+&lt;li>edite a configuração específica do seu caso para os casos de &lt;code>http&lt;/code> e &lt;code>https&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">Acquire::http::Proxy &lt;span class="s2">&amp;#34;http://user:password@proxy.server:port/&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Acquire::https::Proxy &lt;span class="s2">&amp;#34;http://user:password@proxy.server:port/&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;p>ou&lt;/p>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">Acquire &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> HTTP::proxy &lt;span class="s2">&amp;#34;http://127.0.0.1:8080&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> HTTPS::proxy &lt;span class="s2">&amp;#34;http://127.0.0.1:8080&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;br/>
+&lt;br/>
+&lt;h1>Zypper &amp;amp; Squid Proxy&lt;/h1>&lt;p>Quando nos encontramos atrás de um proxy o Zypper tem problemas em fazer &lt;em>requests&lt;/em> se as configurações de proxy não estiverem presentes.&lt;/p>
+&lt;p>Para solucionar o problema basta fazer:&lt;/p>
+&lt;ol>
+&lt;li>Edite o arquivo: &lt;code>/etc/sysconfig/proxy&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">PROXY_ENABLED&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">HTTP_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://192.168.0.1:3128&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">HTTPS_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://192.168.0.1:3128&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">FTP_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://192.168.0.1:3128&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">NO_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;localhost, 127.0.0.1&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div></description></item><item><title>Hardening Linux Servers</title><link>https://hugovaz.dev/notes/hardening-linux-servers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hugovaz.dev/notes/hardening-linux-servers/</guid><description>
+&lt;h1>1. Update &amp;amp;&amp;amp; Upgrade dos pacotes do sistema&lt;/h1>&lt;p>Faça o update e upgrade dos pacotes de acordo com a distribuição de Linux.&lt;/p>
+&lt;div class="mt-4 flex w-max min-w-full border-b border-gray-200 pb-px dark:border-neutral-800">&lt;button
+class="tabs-toggle data-[state=selected]:border-primary-500 data-[state=selected]:text-primary-600 mr-2 rounded-t p-2 font-medium leading-5 transition-colors -mb-0.5 select-none border-b-2 border-transparent text-gray-600 hover:border-gray-200 hover:text-black dark:text-gray-200 dark:hover:border-neutral-800 dark:hover:text-white"
+role="tab"
+type="button"
+aria-controls="tabs-panel-0"
+aria-selected="true"
+tabindex="0"
+data-state="selected"
+>Debian&lt;/button>&lt;button
+class="tabs-toggle data-[state=selected]:border-primary-500 data-[state=selected]:text-primary-600 mr-2 rounded-t p-2 font-medium leading-5 transition-colors -mb-0.5 select-none border-b-2 border-transparent text-gray-600 hover:border-gray-200 hover:text-black dark:text-gray-200 dark:hover:border-neutral-800 dark:hover:text-white"
+role="tab"
+type="button"
+aria-controls="tabs-panel-1"
+>Ubuntu&lt;/button>&lt;/div>
+&lt;div>
+&lt;div
+class="tabs-panel rounded pt-6 hidden data-[state=selected]:block"
+id="tabs-panel-0"
+role="tabpanel"
+tabindex="0"
+data-state="selected"
+>
+&lt;code>apt update &amp;amp;&amp;amp; apt upgrade&lt;/code>
+&lt;/div>
+&lt;div
+class="tabs-panel rounded pt-6 hidden data-[state=selected]:block"
+id="tabs-panel-1"
+role="tabpanel"
+>
+&lt;code>apt update &amp;amp;&amp;amp; apt upgrade&lt;/code>
+&lt;/div>
+&lt;/div>
+&lt;br/>
+&lt;br/>
+&lt;br/>
+&lt;h1>2. Configurar o Hostname da máquina, com FQDN.&lt;/h1>&lt;p>Configurar o &lt;em>hostname&lt;/em> do servidor pode facilitar a configuração de outros serviços.&lt;/p>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">hostnamectl set-hostname server1.example.com&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;br/>
+&lt;br/>
+&lt;br/>
+&lt;h1>3. Criar um usuário diferente de root para o login&lt;/h1>&lt;p>Crie um usuário que possua privelégios &lt;code>root&lt;/code> para que o login de &lt;code>SSH&lt;/code> seja feito principalmente por ele.&lt;/p>
+&lt;div class="code-block relative mt-6 first:mt-0 group/code">&lt;div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">useradd -s /bin/bash -m user
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">usermod -aG root user&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+&lt;button
+class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+title="Copy code"
+>
+&lt;div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4">&lt;/div>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;br/>
+&lt;br/>
+&lt;br/>
+&lt;h1>4. SSH Security&lt;/h1>&lt;p>Podemos tomar algumas medidas de segurança para proteger as conexões de SSH&lt;/p>
+&lt;ol>
+&lt;li>Remover acesso através de senha para o usuário &lt;code>root&lt;/code>&lt;/li>
+&lt;li>Mudar porta de acesso &lt;code>default=22&lt;/code> do SSH&lt;/li>
+&lt;/ol>
+&lt;br/>
+&lt;br/>
+&lt;br/>
+&lt;h1>4. Firewall&lt;/h1>&lt;p>As portas básicas que precisamos para manter um servidor &lt;em>&lt;strong>Web&lt;/strong>&lt;/em> (assumindo http e https).&lt;/p>
+&lt;ol>
+&lt;li>22 (SSH)&lt;/li>
+&lt;li>80/tcp&lt;/li>
+&lt;li>443/tcp&lt;/li>
+&lt;li>8000/tcp (Coolify)&lt;/li>
+&lt;/ol>
+&lt;br/>
+&lt;br/>
+&lt;br/>
+&lt;h1>Referências&lt;/h1>&lt;ul>
+&lt;li>&lt;a href="https://docs.rackspace.com/docs/linux-hostname-change" target="_blank" rel="noopener">Linux Hostname Change&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.redhat.com/sysadmin/configure-hostname-linux" target="_blank" rel="noopener">Configure Hostname Linux&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ionos.com/help/server-cloud-infrastructure/getting-started/important-security-information-for-your-server/deactivating-the-ssh-root-login/" target="_blank" rel="noopener">Deactivating the SSH root login&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cyberciti.biz/faq/how-to-disable-ssh-password-login-on-linux/" target="_blank" rel="noopener">How to disable ssh password login on Linux&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
