@@ -1,1 +1,18 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugovaz.dev – Hugo's Notes</title><link>https://hugovaz.dev/notes/</link><description>Recent content in Hugo's Notes on hugovaz.dev</description><generator>Hugo -- gohugo.io</generator><language>pt</language><atom:link href="https://hugovaz.dev/notes/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugovaz.dev – Hugo&#39;s Notes</title>
+    <link>http://localhost:1313/notes/</link>
+    <description>Recent content in Hugo&#39;s Notes on hugovaz.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt</language>
+    
+	  <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

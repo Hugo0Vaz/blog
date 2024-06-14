@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	<meta name="generator" content="Hugo 0.126.3"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
@@ -12,24 +11,37 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>hugovaz.dev</title>
-  <meta name="description" content="" />
+  <title>Separation of Concearns versus Locality of Behaviour – hugovaz.dev</title>
+  <meta name="description" content="Introduction TODO: create introduction.
+What is Separations of Concearns? Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system’s functionality. A “concern” in this context refers to a particular feature, behavior or piece of functionality that a program must implement.
+Key Aspects of Separation of Concerns: Modularity Encapsulation Independence Maintainability Reusability Testability Improved Code Organization Simplified Debugging and Maintenance Enhanced Collaboration Scalability Examples of Separation of Concerns: MVC Pattern (Model-View-Controller): in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow)." />
   
   
-    <link rel="canonical" href="http://localhost:1313/en/" itemprop="url" />
+    <link rel="canonical" href="http://localhost:1313/en/blog/soc-vs-lob/" itemprop="url" />
   
 
   
 
-<meta property="og:title" content="hugovaz.dev" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/en/" />
+<meta property="og:title" content="Separation of Concearns versus Locality of Behaviour" />
+<meta property="og:description" content="Introduction TODO: create introduction.
+What is Separations of Concearns? Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system&rsquo;s functionality. A &ldquo;concern&rdquo; in this context refers to a particular feature, behavior or piece of functionality that a program must implement.
+Key Aspects of Separation of Concerns: Modularity Encapsulation Independence Maintainability Reusability Testability Improved Code Organization Simplified Debugging and Maintenance Enhanced Collaboration Scalability Examples of Separation of Concerns: MVC Pattern (Model-View-Controller): in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/en/blog/soc-vs-lob/" /><meta property="article:section" content="blog" />
+
+
 
   
-  <meta itemprop="name" content="hugovaz.dev">
+  <meta itemprop="name" content="Separation of Concearns versus Locality of Behaviour">
+  <meta itemprop="description" content="Introduction TODO: create introduction.
+What is Separations of Concearns? Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system’s functionality. A “concern” in this context refers to a particular feature, behavior or piece of functionality that a program must implement.
+Key Aspects of Separation of Concerns: Modularity Encapsulation Independence Maintainability Reusability Testability Improved Code Organization Simplified Debugging and Maintenance Enhanced Collaboration Scalability Examples of Separation of Concerns: MVC Pattern (Model-View-Controller): in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow).">
+  <meta itemprop="wordCount" content="409">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="hugovaz.dev">
+  <meta name="twitter:title" content="Separation of Concearns versus Locality of Behaviour">
+  <meta name="twitter:description" content="Introduction TODO: create introduction.
+What is Separations of Concearns? Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system’s functionality. A “concern” in this context refers to a particular feature, behavior or piece of functionality that a program must implement.
+Key Aspects of Separation of Concerns: Modularity Encapsulation Independence Maintainability Reusability Testability Improved Code Organization Simplified Debugging and Maintenance Enhanced Collaboration Scalability Examples of Separation of Concerns: MVC Pattern (Model-View-Controller): in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow).">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -84,7 +96,7 @@
             title="Blog"
             href="/en/blog"
             
-            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block font-medium"
           >
             <span class="text-center">Blog</span>
           </a><div class="search-wrapper relative md:w-64">
@@ -119,7 +131,7 @@
   </nav>
 </div>
 
-  <div class='mx-auto flex max-w-screen-xl'>
+  <div class="mx-auto flex max-w-screen-xl">
     <div class="mobile-menu-overlay [transition:background-color_1.5s_ease] fixed inset-0 z-10 bg-black/80 dark:bg-black/60 hidden"></div>
 <aside class="sidebar-container flex flex-col print:hidden md:top-16 md:shrink-0 md:w-64 md:self-start max-md:[transform:translate3d(0,-100%,0)] md:hidden xl:block">
   
@@ -153,7 +165,7 @@
     <ul class="flex flex-col gap-1 md:hidden">
       
       
-          <li class=""><a
+          <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/en/blog/"
@@ -161,13 +173,40 @@
   >
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
     </a><div class="ltr:pr-0 overflow-hidden">
-        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col "><a
+        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/en/blog/soc-vs-lob/"
     
   >Separation of Concearns versus Locality of Behaviour
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#introduction"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Introduction</a>
+            </li>
+          <li>
+              <a
+                href="#what-is-separations-of-concearns"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >What is Separations of Concearns?</a>
+            </li>
+          <li>
+              <a
+                href="#what-is-locality-of-bahaviour"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >What is Locality of Bahaviour?</a>
+            </li>
+          <li>
+              <a
+                href="#lob-over-soc-the-hot-take"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >LoB over SoC: the hot take</a>
+            </li>
+          </ul>
+  
               
             </li></ul>
       </div></li>
@@ -202,7 +241,7 @@
         
         <li class="flex flex-col">
           <a
-            href="/en/"
+            href="/en/blog/soc-vs-lob/"
             class="text-gray-800 dark:text-gray-100 hover:bg-primary-50 hover:text-primary-600 hover:dark:bg-primary-500/10 hover:dark:text-primary-600 relative cursor-pointer whitespace-nowrap py-1.5 transition-colors ltr:pl-3 ltr:pr-9 rtl:pr-3 rtl:pl-9"
           >English<span class="absolute inset-y-0 flex items-center ltr:right-3 rtl:left-3"><svg height=1em width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></a>
         </li>
@@ -219,8 +258,44 @@
 </div></aside>
     
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4">
-      <div class=" sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
+    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#introduction">Introduction
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#what-is-separations-of-concearns">What is Separations of Concearns?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#key-aspects-of-separation-of-concerns">Key Aspects of Separation of Concerns:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#examples-of-separation-of-concerns">Examples of Separation of Concerns:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#what-is-locality-of-bahaviour">What is Locality of Bahaviour?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#key-aspects-of-locality-of-behavior">Key Aspects of Locality of Behavior:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#examples-of-locality-of-behavior">Examples of Locality of Behavior:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lob-over-soc-the-hot-take">LoB over SoC: the hot take
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#my-thoughts-on-lob">My thoughts on LoB
+        </a>
+      </li></ul>
+      <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline ml-1 h-3.5 w-3.5 border rounded-full border-gray-500 hover:border-gray-900 dark:border-gray-400 dark:hover:border-gray-100 contrast-more:border-gray-800 contrast-more:dark:border-gray-50">
@@ -234,10 +309,82 @@
 
     <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
       <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
-        <h1 class="text-center mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">hugovaz.dev</h1>
+        <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="http://localhost:1313/en/blog/"></a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Separation of Concearns versus Locality of Behaviour</div>
+</div>
+
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Separation of Concearns versus Locality of Behaviour</h1>
+        <div class="mt-4 mb-16 text-gray-500 text-sm flex items-center flex-wrap gap-y-2"></div>
         <div class="content">
-          
+          <h2>Introduction<span class="absolute -mt-20" id="introduction"></span>
+    <a href="#introduction" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>TODO: create introduction.</p>
+<h2>What is Separations of Concearns?<span class="absolute -mt-20" id="what-is-separations-of-concearns"></span>
+    <a href="#what-is-separations-of-concearns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Separation of Concerns (SoC) is a fundamental design principle in software engineering and computer science that involves breaking down a software system into distinct sections, each addressing a specific concern or aspect of the system&rsquo;s functionality. A &ldquo;concern&rdquo; in this context refers to a particular feature, behavior or piece of functionality that a program must implement.</p>
+<h3>Key Aspects of Separation of Concerns:<span class="absolute -mt-20" id="key-aspects-of-separation-of-concerns"></span>
+    <a href="#key-aspects-of-separation-of-concerns" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li><strong>Modularity</strong></li>
+<li><strong>Encapsulation</strong></li>
+<li><strong>Independence</strong></li>
+<li><strong>Maintainability</strong></li>
+<li><strong>Reusability</strong></li>
+<li><strong>Testability</strong></li>
+<li><strong>Improved Code Organization</strong></li>
+<li><strong>Simplified Debugging and Maintenance</strong></li>
+<li><strong>Enhanced Collaboration</strong></li>
+<li><strong>Scalability</strong></li>
+</ol>
+<h3>Examples of Separation of Concerns:<span class="absolute -mt-20" id="examples-of-separation-of-concerns"></span>
+    <a href="#examples-of-separation-of-concerns" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p><strong>MVC Pattern (Model-View-Controller)</strong>: in web development, the MVC pattern separates concerns by dividing the application into three main components: Model (data and business logic), View (user interface), and Controller (request handling and application flow).</p>
+</li>
+<li>
+<p><strong>Microservices Architecture</strong>: in a microservices architecture, different services are responsible for different business capabilities. Each service handles a specific concern, and services communicate with each other through well-defined APIs.</p>
+</li>
+<li>
+<p><strong>Layered Architecture</strong>: applications are often divided into layers such as presentation, business logic, and data access layers. Each layer addresses a specific concern and interacts with adjacent layers through defined interfaces.</p>
+</li>
+</ul>
+<h2>What is Locality of Bahaviour?<span class="absolute -mt-20" id="what-is-locality-of-bahaviour"></span>
+    <a href="#what-is-locality-of-bahaviour" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Locality of Behavior is a software design principle that emphasizes keeping related functionality and behaviors close together within the codebase. This principle aims to enhance code readability and maintainability by ensuring that code elements that interact frequently or belong to the same logical operation are grouped together.</p>
+<h3>Key Aspects of Locality of Behavior:<span class="absolute -mt-20" id="key-aspects-of-locality-of-behavior"></span>
+    <a href="#key-aspects-of-locality-of-behavior" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li><strong>Proximity</strong></li>
+<li><strong>Cohesion</strong></li>
+<li><strong>Readability</strong></li>
+<li><strong>Maintainability</strong></li>
+<li><strong>Simplified Debugging</strong></li>
+<li><strong>Enhanced Collaboration</strong></li>
+<li><strong>Reduced Cognitive Load</strong></li>
+</ol>
+<h3>Examples of Locality of Behavior:<span class="absolute -mt-20" id="examples-of-locality-of-behavior"></span>
+    <a href="#examples-of-locality-of-behavior" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p><strong>Class Methods</strong>: in object-oriented programming, methods related to a particular class’s behavior are defined within that class. For instance, all methods manipulating an object’s state are found within that object&rsquo;s class.</p>
+</li>
+<li>
+<p><strong>Modules and Packages</strong>: in modular programming, related functions and classes are grouped into modules and packages. This organization ensures that all related code is contained within a single module, making it easier to locate and manage.</p>
+</li>
+<li>
+<p><strong>Functions and Closures</strong>: in functional programming, functions that operate on the same data or achieve the same goal are often defined in close proximity. Closures can be used to keep related data and functions together.</p>
+</li>
+</ul>
+<h2>LoB over SoC: the hot take<span class="absolute -mt-20" id="lob-over-soc-the-hot-take"></span>
+    <a href="#lob-over-soc-the-hot-take" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>My thoughts on LoB<span class="absolute -mt-20" id="my-thoughts-on-lob"></span>
+    <a href="#my-thoughts-on-lob" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>As a software designer I live by a couple of principles:</p>
+<ol>
+<li>I&rsquo;m a <a href="https://grugbrain.dev/" target="_blank" rel="noopener">grug brain developer (brain very smol)</a>.</li>
+<li>&ldquo;Premature Optimization is the root of all evil&rdquo; - <a href="https://en.wikipedia.org/wiki/Donald_Knuth" target="_blank" rel="noopener"><em>Donald Knuth</em></a>.</li>
+<li>If it ain&rsquo;t broke, don&rsquo;t fix it.</li>
+</ol>
+
         </div>
+        <div class="mt-16"></div>
+        
+        
+        
       </main>
     </article>
   </div>
@@ -268,7 +415,7 @@
         
         <li class="flex flex-col">
           <a
-            href="/en/"
+            href="/en/blog/soc-vs-lob/"
             class="text-gray-800 dark:text-gray-100 hover:bg-primary-50 hover:text-primary-600 hover:dark:bg-primary-500/10 hover:dark:text-primary-600 relative cursor-pointer whitespace-nowrap py-1.5 transition-colors ltr:pl-3 ltr:pr-9 rtl:pr-3 rtl:pl-9"
           >English<span class="absolute inset-y-0 flex items-center ltr:right-3 rtl:left-3"><svg height=1em width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></a>
         </li>
