@@ -1,0 +1,59 @@
+---
+import { getEntry, getCollection, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../../layouts/Layout.astro";
+import LanguageSwitcher from "../../../components/LanguageSwitcher.astro";
+
+const currentLocale = Astro.currentLocale ?? "en";
+const otherLocale = currentLocale === "pt-br" ? "en" : "pt-br";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  const localePosts = posts.filter((p) => p.data.locale === "en");
+  return localePosts.map((post) => ({
+    params: { slug: post.id.split("/").pop() },
+  }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+const postId = `${currentLocale}/${slug}`;
+const post = await getEntry("posts", postId);
+
+if (!post || post.data.locale !== currentLocale) {
+  return Astro.redirect("/404");
+}
+
+const translationId = `${otherLocale}/${slug}`;
+let translation = null;
+try {
+  translation = await getEntry("posts", translationId);
+} catch {}
+
+const { Content } = await render(post);
+
+const translationUrl = translation
+  ? getRelativeLocaleUrl(otherLocale, `/blog/${slug}`)
+  : null;
+---
+
+<Layout lang={currentLocale} title={post.data.title}>
+  <LanguageSwitcher />
+  <article>
+    <h1>{post.data.title}</h1>
+    <p><small>{post.data.date.toLocaleDateString(currentLocale)}</small></p>
+    <Content />
+  </article>
+  {
+    translationUrl && (
+      <p><a href={translationUrl}>
+        {otherLocale === "pt-br" ? "Ler em português" : "Read in English"}
+      </a></p>
+    )
+  }
+  <p><a href={getRelativeLocaleUrl(currentLocale, "/blog")}>← Back to blog</a></p>
+</Layout>

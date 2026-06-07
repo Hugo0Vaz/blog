@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Layout from "../layouts/Layout.astro";
-import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import Layout from "../../layouts/Layout.astro";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
 
-const currentLocale = Astro.currentLocale ?? "pt-br";
+const currentLocale = Astro.currentLocale ?? "en";
 
 const allPosts = await getCollection("posts");
 const recentPosts = allPosts

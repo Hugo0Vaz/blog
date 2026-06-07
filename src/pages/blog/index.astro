@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../layouts/Layout.astro";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
+
+const currentLocale = Astro.currentLocale ?? "pt-br";
+
+const allPosts = await getCollection("posts");
+const posts = allPosts
+  .filter((p) => p.data.locale === currentLocale)
+  .filter((p) => import.meta.env.DEV || !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout lang={currentLocale} title="Blog">
+  <LanguageSwitcher />
+  <h1>Blog</h1>
+  {
+    posts.length === 0 ? (
+      <p>No posts yet.</p>
+    ) : (
+      <ul>
+        {posts.map((post) => {
+          const slug = post.id.split("/").pop();
+          const url = getRelativeLocaleUrl(currentLocale, `/blog/${slug}`);
+          return (
+            <li>
+              <a href={url}>{post.data.title}</a>
+              <br />
+              <small>{post.data.date.toLocaleDateString(currentLocale)}</small>
+            </li>
+          );
+        })}
+      </ul>
+    )
+  }
+</Layout>

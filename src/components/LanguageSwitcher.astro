@@ -1,0 +1,18 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const currentLocale = Astro.currentLocale ?? "pt-br";
+const otherLocale = currentLocale === "pt-br" ? "en" : "pt-br";
+
+const pathname = Astro.url.pathname;
+let basePath = pathname;
+if (pathname.startsWith("/en/") || pathname === "/en") {
+	basePath = pathname.slice(3) || "/";
+}
+
+const otherUrl = getRelativeLocaleUrl(otherLocale, basePath);
+---
+
+<nav>
+	<a href={otherUrl}>{otherLocale === "pt-br" ? "PT" : "EN"}</a>
+</nav>

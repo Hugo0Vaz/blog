@@ -9,9 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sort": "node scripts/image_color_sort.js"
   },
   "dependencies": {
-    "astro": "^6.3.7"
+    "astro": "^6.3.7",
+    "sharp": "^0.34.5"
   }
 }

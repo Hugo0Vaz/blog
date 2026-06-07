@@ -28,6 +28,7 @@
               typescript-language-server
               prettier
               git
+              just
             ];
 
             shellHook = ''

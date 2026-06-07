@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+
+const currentLocale = Astro.currentLocale ?? "pt-br";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	"../images/image-board/*.{jpg,jpeg,png,webp,gif}",
+	{ eager: true },
+);
+
+const sorted = Object.entries(images)
+	.map(([path, mod]) => ({
+		src: mod.default.src,
+		num: Number.parseInt(path.match(/(\d+)/)?.[1] ?? "0"),
+	}))
+	.sort((a, b) => a.num - b.num);
+---
+
+<Layout lang={currentLocale} title="Image Board">
+  <LanguageSwitcher />
+  <main>
+    <div class="toolbar">
+      <button id="btn-minus" title="Fewer images per row">−</button>
+      <h1>Image Board</h1>
+      <button id="btn-plus" title="More images per row">+</button>
+    </div>
+    <div class="grid" id="grid">
+      {
+        sorted.map((img) => (
+          <img src={img.src} alt={`Image ${img.num}`} loading="lazy" />
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: white;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .toolbar h1 {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+  }
+
+  #btn-minus,
+  #btn-plus {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  #btn-minus:hover,
+  #btn-plus:hover {
+    background: #333;
+    color: white;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+</style>
+
+<script>
+  const grid = document.getElementById("grid");
+  const btnMinus = document.getElementById("btn-minus");
+  const btnPlus = document.getElementById("btn-plus");
+
+  let cols = 3;
+
+  function apply() {
+    grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  }
+
+  btnMinus.addEventListener("click", () => {
+    cols = Math.max(1, cols - 1);
+    apply();
+  });
+
+  btnPlus.addEventListener("click", () => {
+    cols = Math.min(6, cols + 1);
+    apply();
+  });
+</script>
