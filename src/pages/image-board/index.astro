@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 
 const currentLocale = Astro.currentLocale ?? "pt-br";
 
@@ -18,7 +17,6 @@ const sorted = Object.entries(images)
 ---
 
 <Layout lang={currentLocale} title="Image Board">
-  <LanguageSwitcher />
   <main>
     <div class="toolbar">
       <button id="btn-minus" title="Fewer images per row">−</button>
@@ -37,9 +35,8 @@ const sorted = Object.entries(images)
 
 <style>
   main {
-    background: white;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 0;
     box-sizing: border-box;
   }
 
@@ -53,15 +50,17 @@ const sorted = Object.entries(images)
   .toolbar h1 {
     margin: 0;
     font-family: system-ui, sans-serif;
+    color: white;
   }
 
   #btn-minus,
   #btn-plus {
     width: 2.5rem;
     height: 2.5rem;
-    border: 2px solid #333;
+    border: 2px solid #067302;
     border-radius: 50%;
-    background: white;
+    background: #022601;
+    color: #067302;
     font-size: 1.4rem;
     font-weight: bold;
     line-height: 1;
@@ -74,8 +73,8 @@ const sorted = Object.entries(images)
 
   #btn-minus:hover,
   #btn-plus:hover {
-    background: #333;
-    color: white;
+    background: #067302;
+    color: #022601;
   }
 
   .grid {

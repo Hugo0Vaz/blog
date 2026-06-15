@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import hugoImg from "../assets/hugo.jpg";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -23,15 +24,34 @@ const { lang, title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<nav class="">
-			<a href={getRelativeLocaleUrl(currentLocale, "/blog")}>Blog</a>
-			<a href={getRelativeLocaleUrl(currentLocale, "/image-board")}>Image Board</a>
-		</nav>
-		<slot />
-		<footer class="">
-			<p>&copy; 2026 Your Company Name. All rights reserved.</p>
-			<p>Contact us at: <a href="mailto:support@example.com">support@example.com</a></p>
+	<body class="min-h-screen flex flex-col">
+		<header class="border-b border-primary-dark bg-primary-deep px-6 py-3 font-mono">
+			<nav class="flex items-center justify-between">
+				<div class="flex items-center gap-3">
+					<img
+						src={hugoImg.src}
+						alt="Hugo"
+						class="w-8 h-8 object-cover"
+					/>
+					<a
+						href={getRelativeLocaleUrl(currentLocale, "/")}
+						class="font-mono text-2xl font-bold text-white no-underline tracking-tight"
+					>
+						hugovaz.dev
+					</a>
+				</div>
+				<div class="flex items-center gap-4">
+					<a href={getRelativeLocaleUrl(currentLocale, "/blog")} class="no-underline text-xl">Blog</a>
+					<a href={getRelativeLocaleUrl(currentLocale, "/image-board")} class="no-underline text-xl">Image Board</a>
+				</div>
+			</nav>
+		</header>
+		<main class="flex-1 max-w-2xl mx-auto px-6 py-8 w-full">
+			<slot />
+		</main>
+		<footer class="border-t border-primary-dark bg-primary-deep px-6 py-6 text-sm text-primary-dim font-mono">
+			<p>&copy; 2026 Vaz Tech. No rights reserved.</p>
+			<p>Contact me at: <a href="mailto:me@hugovaz.dev">me@hugovaz.dev</a></p>
 
 			<LanguageSwitcher />
 		</footer>

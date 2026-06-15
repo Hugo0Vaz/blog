@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/* === Base === */
+@layer base {
+  body {
+    @apply bg-surface text-white;
+    font-family: system-ui, sans-serif;
+  }
+
+  a {
+    @apply text-primary underline decoration-primary-dark underline-offset-2;
+  }
+
+  a:hover {
+    @apply text-primary-dim;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white;
+  }
+}
+
 /* === Sligoil-Micro === */
 @font-face {
   font-family: "Sligoil Micro";
@@ -42,8 +62,48 @@
   font-display: swap;
 }
 
+/* === Computer Modern === */
+@font-face {
+  font-family: "Computer Modern";
+  src: url("https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.0/fonts/ComputerModernSerif-Roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url("https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.0/fonts/ComputerModernSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url("https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.0/fonts/ComputerModernSerif-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Iosevka === */
+@font-face {
+  font-family: "Iosevka";
+  src: url("../assets/SGr-Iosevka-Regular.ttc") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* === Tailwind v4 Theme === */
 @theme {
   --font-sans: "Sligoil Micro", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Terminal Grotesque", ui-monospace, monospace;
+
+  --color-primary: #067302;
+  --color-primary-dim: #055902;
+  --color-primary-dark: #034001;
+  --color-primary-deep: #022601;
+  --color-surface: #0D0D0D;
 }
