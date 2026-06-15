@@ -13,7 +13,10 @@
     "sort": "node scripts/image_color_sort.js"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.7",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.3.0"
   }
 }

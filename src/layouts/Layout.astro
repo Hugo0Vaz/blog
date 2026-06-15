@@ -1,7 +1,13 @@
 ---
+import '../styles/global.css';
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const currentLocale = Astro.currentLocale ?? "pt-br";
+
 interface Props {
-	lang: string;
-	title: string;
+lang: string;
+title: string;
 }
 
 const { lang, title } = Astro.props;
@@ -18,15 +24,16 @@ const { lang, title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<nav class="">
+			<a href={getRelativeLocaleUrl(currentLocale, "/blog")}>Blog</a>
+			<a href={getRelativeLocaleUrl(currentLocale, "/image-board")}>Image Board</a>
+		</nav>
 		<slot />
+		<footer class="">
+			<p>&copy; 2026 Your Company Name. All rights reserved.</p>
+			<p>Contact us at: <a href="mailto:support@example.com">support@example.com</a></p>
+
+			<LanguageSwitcher />
+		</footer>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

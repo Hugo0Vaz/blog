@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* === Sligoil-Micro === */
+@font-face {
+  font-family: "Sligoil Micro";
+  src: url("../assets/Sligoil-Micro.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sligoil Micro";
+  src: url("../assets/Sligoil-MicroMedium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sligoil Micro";
+  src: url("../assets/Sligoil-MicroBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Terminal Grotesque === */
+@font-face {
+  font-family: "Terminal Grotesque";
+  src: url("../assets/terminal-grotesque.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Terminal Grotesque";
+  src: url("../assets/terminal-grotesque_open.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Tailwind v4 Theme === */
+@theme {
+  --font-sans: "Sligoil Micro", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Terminal Grotesque", ui-monospace, monospace;
+}

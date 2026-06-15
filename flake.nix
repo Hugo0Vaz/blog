@@ -29,6 +29,7 @@
               prettier
               git
               just
+              tailwindcss-language-server
             ];
 
             shellHook = ''
