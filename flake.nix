@@ -19,20 +19,26 @@
           lib = pkgs.lib;
         in
         {
-          packages.default = pkgs.stdenv.mkDerivation {
+          packages.default = pkgs.stdenv.mkDerivation (finalAttrs: {
             pname = "fumbling-field";
             version = "0.0.1";
 
-            src = lib.cleanSource ./. ;
+            src = lib.cleanSource ./.;
 
             nativeBuildInputs = with pkgs; [
               nodejs_22
               pnpm
+              pnpmConfigHook
             ];
+
+            pnpmDeps = pkgs.fetchPnpmDeps {
+              inherit (finalAttrs) pname version src;
+              fetcherVersion = 3;
+              hash = "sha256-ZF7CLnQkVkpv4Xy9SgrPlkSB3NejoUZ0jhRmPrQEJGM=";
+            };
 
             buildPhase = ''
               runHook preBuild
-              pnpm install --frozen-lockfile
               pnpm run build
               runHook postBuild
             '';
@@ -43,7 +49,7 @@
               cp -r dist/* $out/
               runHook postInstall
             '';
-          };
+          });
 
           devShells.default = pkgs.mkShell {
             name = "astro-dev";
