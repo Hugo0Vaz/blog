@@ -1,10 +1,15 @@
 ---
 import '../styles/global.css';
-import hugoImg from "../assets/hugo.jpg";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const currentLocale = Astro.currentLocale ?? "pt-br";
+
+const navLabels: Record<string, { blog: string; projects: string }> = {
+	"pt-br": { blog: "Blog", projects: "Projetos" },
+	"en": { blog: "Blog", projects: "Projects" },
+};
+const labels = navLabels[currentLocale] ?? navLabels["pt-br"];
 
 interface Props {
 lang: string;
@@ -28,11 +33,6 @@ const { lang, title } = Astro.props;
 		<header class="border-b border-primary-dark bg-primary-deep px-6 py-3 font-mono">
 			<nav class="flex items-center justify-between">
 				<div class="flex items-center gap-3">
-					<img
-						src={hugoImg.src}
-						alt="Hugo"
-						class="w-8 h-8 object-cover"
-					/>
 					<a
 						href={getRelativeLocaleUrl(currentLocale, "/")}
 						class="font-mono text-2xl font-bold text-white no-underline tracking-tight"
@@ -41,8 +41,8 @@ const { lang, title } = Astro.props;
 					</a>
 				</div>
 				<div class="flex items-center gap-4">
-					<a href={getRelativeLocaleUrl(currentLocale, "/blog")} class="no-underline text-xl">Blog</a>
-					<a href={getRelativeLocaleUrl(currentLocale, "/image-board")} class="no-underline text-xl">Image Board</a>
+					<a href={getRelativeLocaleUrl(currentLocale, "/blog")} class="no-underline text-xl">{labels.blog}</a>
+					<a href={getRelativeLocaleUrl(currentLocale, "/projects")} class="no-underline text-xl">{labels.projects}</a>
 				</div>
 			</nav>
 		</header>

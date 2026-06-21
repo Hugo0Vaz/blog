@@ -3,6 +3,7 @@ title: "Olá, Mundo!"
 date: 2026-06-06
 locale: pt-br
 description: "Meu primeiro post"
+author: Hugo0Vaz
 ---
 
 Bem-vindo ao meu blog! Este post foi escrito em **Markdown**.

@@ -3,6 +3,7 @@ title: "Hello, World!"
 date: 2026-06-06
 locale: en
 description: "My first blog post"
+author: Hugo0Vaz
 ---
 
 Welcome to my blog! This post is written in **Markdown**.
