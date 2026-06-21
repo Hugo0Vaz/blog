@@ -16,8 +16,35 @@
             inherit system;
             config.allowUnfree = true;
           };
+          lib = pkgs.lib;
         in
         {
+          packages.default = pkgs.stdenv.mkDerivation {
+            pname = "fumbling-field";
+            version = "0.0.1";
+
+            src = lib.cleanSource ./. ;
+
+            nativeBuildInputs = with pkgs; [
+              nodejs_22
+              pnpm
+            ];
+
+            buildPhase = ''
+              runHook preBuild
+              pnpm install --frozen-lockfile
+              pnpm run build
+              runHook postBuild
+            '';
+
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out
+              cp -r dist/* $out/
+              runHook postInstall
+            '';
+          };
+
           devShells.default = pkgs.mkShell {
             name = "astro-dev";
 
