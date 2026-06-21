@@ -1,0 +1,96 @@
+<canvas id="matrix-rain" class="fixed inset-0 -z-10" aria-hidden="true"></canvas>
+
+<script>
+  const canvas = document.getElementById("matrix-rain") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d")!;
+
+  let width = 0;
+  let height = 0;
+  let columns = 0;
+  let drops: number[] = [];
+
+  // Katakana + numeric + symbols for the Matrix look
+  const chars = "ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ABCDEF<>/\\|[]{}@#$%&*";
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const fontSize = 14;
+    const newColumns = Math.floor(width / fontSize);
+
+    // Preserve existing drops when resizing
+    const newDrops: number[] = [];
+    for (let i = 0; i < newColumns; i++) {
+      newDrops[i] = drops[i] ?? Math.floor((Math.random() * height) / fontSize);
+    }
+    columns = newColumns;
+    drops = newDrops;
+  }
+
+  function draw() {
+    // Semi-transparent dark overlay for trailing fade
+    ctx.fillStyle = "rgba(13, 13, 13, 0.05)";
+    ctx.fillRect(0, 0, width, height);
+
+    const fontSize = 14;
+    ctx.font = `${fontSize}px "Iosevka", monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+
+      // Bright green for the "leading" character
+      ctx.fillStyle = "#067302";
+      ctx.fillText(char, x, y);
+
+      // Dimmer green for the second character in the trail
+      if (drops[i] > 0) {
+        ctx.fillStyle = "#034001";
+        ctx.fillText(
+          chars[Math.floor(Math.random() * chars.length)],
+          x,
+          y - fontSize
+        );
+      }
+
+      // Very dim for the third character
+      if (drops[i] > 1) {
+        ctx.fillStyle = "#022601";
+        ctx.fillText(
+          chars[Math.floor(Math.random() * chars.length)],
+          x,
+          y - fontSize * 2
+        );
+      }
+
+      // Reset drop when it reaches the bottom or randomly
+      if (y > height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  let animationId: number;
+
+  function animate() {
+    draw();
+    animationId = requestAnimationFrame(animate);
+  }
+
+  resize();
+  animate();
+
+  window.addEventListener("resize", resize);
+
+  // Cleanup on page navigation (Astro SPA)
+  document.addEventListener("astro:before-swap", () => {
+    cancelAnimationFrame(animationId);
+    window.removeEventListener("resize", resize);
+  });
+</script>

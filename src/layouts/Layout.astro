@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import MatrixRain from "../components/MatrixRain.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const currentLocale = Astro.currentLocale ?? "pt-br";
@@ -30,7 +31,8 @@ const { lang, title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen flex flex-col">
-		<header class="border-b border-primary-dark bg-primary-deep px-6 py-3 font-mono">
+		<MatrixRain />
+		<header class="border-b border-primary-dark bg-primary-deep/30 backdrop-blur-md px-6 py-3 font-mono">
 			<nav class="flex items-center justify-between">
 				<div class="flex items-center gap-3">
 					<a
@@ -46,10 +48,10 @@ const { lang, title } = Astro.props;
 				</div>
 			</nav>
 		</header>
-		<main class="flex-1 max-w-2xl mx-auto px-6 py-8 w-full">
+		<main class="flex-1 max-w-2xl mx-auto px-6 py-8 w-full backdrop-blur-sm bg-surface/20">
 			<slot />
 		</main>
-		<footer class="border-t border-primary-dark bg-primary-deep px-6 py-6 text-sm text-primary-dim font-mono">
+		<footer class="border-t border-primary-dark bg-primary-deep/30 backdrop-blur-md px-6 py-6 text-sm text-primary-dim font-mono">
 			<p>&copy; 2026 Vaz Tech. No rights reserved.</p>
 			<p>Contact me at: <a href="mailto:me@hugovaz.dev">me@hugovaz.dev</a></p>
 
