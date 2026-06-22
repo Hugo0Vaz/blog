@@ -8,7 +8,9 @@ const otherLocale = currentLocale === "pt-br" ? "en" : "pt-br";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  const localePosts = posts.filter((p) => p.data.locale === "pt-br");
+  const localePosts = posts
+    .filter((p) => p.data.locale === "pt-br")
+    .filter((p) => import.meta.env.DEV || !p.data.draft);
   return localePosts.map((post) => ({
     params: { slug: post.id.split("/").pop() },
   }));
@@ -24,6 +26,10 @@ const postId = `${currentLocale}/${slug}`;
 const post = await getEntry("posts", postId);
 
 if (!post || post.data.locale !== currentLocale) {
+  return Astro.redirect("/404");
+}
+
+if (!import.meta.env.DEV && post.data.draft) {
   return Astro.redirect("/404");
 }
 

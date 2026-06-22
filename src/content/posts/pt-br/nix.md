@@ -1,7 +1,7 @@
 ---
-title: "Nix, NixOS and Nix package manager"
+title: "Nix, NixOS and Nix gerenciador de pacotes"
 date: 2026-06-06
-locale: en
+locale: pt-br
 description: "My journey of Nix"
 author: Hugo0Vaz
 draft: true
