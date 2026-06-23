@@ -48,8 +48,12 @@ const { lang, title } = Astro.props;
 				</div>
 			</nav>
 		</header>
-		<main class="flex-1 max-w-2xl mx-auto px-6 py-8 w-full backdrop-blur-sm bg-surface/20">
-			<slot />
+		<main class="flex-1 mx-auto px-6 w-full">
+			<div class="flex max-w-6xl mx-auto vignette">
+				<div class="flex-1 min-w-0 max-w-2xl bg-surface mx-auto py-8">
+					<slot />
+				</div>
+			</div>
 		</main>
 		<footer class="border-t border-primary-dark bg-primary-deep/30 backdrop-blur-md px-6 py-6 text-sm text-primary-dim font-mono">
 			<p>&copy; 2026 Vaz Tech. No rights reserved.</p>

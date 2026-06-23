@@ -1,0 +1,68 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+const { headings = [] } = Astro.props as { headings: Heading[] };
+
+// Only show h2 and h3 in the ToC (h1 is the post title itself)
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+
+if (tocHeadings.length === 0) return null;
+---
+
+<nav class="toc font-sans">
+  <h2 class="text-xs font-mono uppercase tracking-widest text-primary-dim mb-4">
+    On this page
+  </h2>
+  <ul class="space-y-1.5 border-l border-primary-dark/50 pl-4">
+    {
+      tocHeadings.map((heading) => (
+        <li>
+          <a
+            href={`#${heading.slug}`}
+            class:list={[
+              "block text-sm no-underline transition-colors leading-snug",
+              "text-primary-dim hover:text-primary",
+              heading.depth === 3 ? "pl-3 text-xs" : "",
+            ]}
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  // Highlight the current heading on scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const id = entry.target.id;
+        const link = document.querySelector(`.toc a[href="#${id}"]`);
+        if (link) {
+          if (entry.isIntersecting) {
+            link.classList.add("text-primary");
+            link.classList.remove("text-primary-dim");
+          } else {
+            link.classList.remove("text-primary");
+            link.classList.add("text-primary-dim");
+          }
+        }
+      }
+    },
+    { rootMargin: "-80px 0px -70% 0px" }
+  );
+
+  document.querySelectorAll(".toc a").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href?.startsWith("#")) {
+      const target = document.getElementById(href.slice(1));
+      if (target) observer.observe(target);
+    }
+  });
+</script>

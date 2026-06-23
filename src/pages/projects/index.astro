@@ -47,7 +47,7 @@ const projects: Project[] = [
 ---
 
 <Layout lang={currentLocale} title="Projetos — hugovaz.dev">
-  <h2 class="font-mono text-xl mb-6 text-primary">$ ls -la projects/</h2>
+  <h2 class="font-mono text-2xl mb-6 text-primary">$ ls -la projects/</h2>
 
   {
     projects.length === 0 ? (
@@ -56,10 +56,10 @@ const projects: Project[] = [
       </p>
     ) : (
       <div style="font-family: 'Iosevka', monospace;">
-        <p class="text-primary-dim text-sm mb-2">total {projects.length}</p>
+        <p class="text-primary-dim text-base mb-2">total {projects.length}</p>
         {projects.map((project) => (
           <div class="mb-1">
-            <div class="text-sm leading-relaxed whitespace-nowrap overflow-x-auto">
+            <div class="text-base leading-relaxed whitespace-nowrap overflow-x-auto">
               <span class="text-primary-dim">drwxr-xr-x</span>
               <span class="text-primary-dim inline-block w-6 text-right">  -</span>
               <span class="text-primary-dim ml-3">hugomvs</span>
@@ -75,7 +75,7 @@ const projects: Project[] = [
                 </a>
               </span>
             </div>
-            <div class="text-xs text-primary-dim/60 ml-4 leading-relaxed">
+            <div class="text-sm text-primary-dim/60 ml-4 leading-relaxed">
               <span class="text-primary-dim/30">#</span> {project.description}
               {" "}
               {project.tags.map((tag) => (

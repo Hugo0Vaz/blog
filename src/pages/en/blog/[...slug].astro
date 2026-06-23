@@ -2,6 +2,7 @@
 import { getEntry, getCollection, render } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
+import TableOfContents from "../../../components/TableOfContents.astro";
 
 const currentLocale = Astro.currentLocale ?? "en";
 const otherLocale = currentLocale === "pt-br" ? "en" : "pt-br";
@@ -39,7 +40,10 @@ try {
   translation = await getEntry("posts", translationId);
 } catch {}
 
-const { Content } = await render(post);
+const { Content, headings = [] } = await render(post);
+
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+const hasToc = tocHeadings.length > 0;
 
 const translationUrl = translation
   ? getRelativeLocaleUrl(otherLocale, `/blog/${slug}`)
@@ -48,10 +52,19 @@ const translationUrl = translation
 
 <Layout lang={currentLocale} title={post.data.title}>
   <article>
-    <h1 class="font-sans text-3xl font-bold">{post.data.title}</h1>
+    <h1 class="font-sans text-4xl font-bold">{post.data.title}</h1>
     <p><small>{post.data.date.toLocaleDateString(currentLocale)}</small></p>
-    <div style="font-family: 'Computer Modern', 'Times New Roman', serif;">
-      <Content />
+    <div class="flex gap-10">
+      {hasToc && (
+        <aside class="w-52 flex-shrink-0 hidden lg:block">
+          <div class="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
+            <TableOfContents headings={headings} />
+          </div>
+        </aside>
+      )}
+      <div class="flex-1 min-w-0" style="font-family: 'Computer Modern', 'Times New Roman', serif;">
+        <Content />
+      </div>
     </div>
   </article>
   <div class="flex justify-between items-center mt-8">

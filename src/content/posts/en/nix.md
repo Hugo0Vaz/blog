@@ -12,32 +12,48 @@ shiny things I went right into it, downloaded the installer, burned a usb stick
 and booted the NixOS installer. That right there would be the start of a to this
 date 656 commits long tale of pain, discovery and self-doubt (mostly confirmed).
 
-# The start
-
-A very important distinction to be drawed and that can lead to a lot of confusion
-is that when we the users of Nix say *Nix*, we might mean:
-- Nix, the language.
-- Nix, the package manager, built on-top of nixlang.
-- NixOS, the linux operating system built on-top of nixpkgs and nixlang.
-
-For ease of undesting when refererring to:
-- The operating system, it will be referred as nixos.
-- The language, it will be refereed as nixlang.
-- The package manager (altough technically incorrect), will be referres as nix.
-
-The core idea of Nix is to enable the declarative definition of packages. Much
-like Node's `package.json ` and Composer's `composer.json` it declaratively installs
-packages.
-
-The declarative nature allows for guaranteed reproducibility besides allowing a 
-configurations to be stored in version control softwares.
-
 ## Why?
 
-### Everything, everywhere all at once
+### Efemeral
+
+Nix prides itself on being able to provide efemeral and reproducible enviroments.
+
+However what does that really mean?
+
+In our shell, if you are o NixOS or have installed the package manager in your
+distro, you can run:
+
+```shell
+nix-shell -p someprogram
+```
+
+This command will download `someprogram` and install in your system's `/nix/store`.
+After install `nix-shell` drops you in a bash session that has access to `someprogram`.
+
+If we:
+
+```shell
+exit
+```
+
+and then:
+
+```shell
+which someprogram
+```
+
+we get:
+
+```shell
+which: no some in /nix/store/...
+```
 
 As a very curios person that likes to speds time tinkering with computers, nixos
 represented an oportunity that no other distro or operating system offers.
+
+
+### Everything, everywhere all at once
+
 
 After years of editing config files and saving the in git repositories, I was tired
 of managing each and every configuration for all my hosts. Nixlang allows me to 
@@ -67,3 +83,22 @@ Markdown makes it easy to write content without worrying about HTML. You can add
 - **Bold** and *italic* text
 - [Links](https://astro.build)
 - And much more!
+
+
+
+
+
+A very important distinction to be drawed and that can lead to a lot of confusion
+is that when we the users of Nix say *Nix*, we might mean:
+- Nix, the language.
+- Nix, the package manager, built on-top of nixlang.
+- NixOS, the linux operating system built on-top of nixpkgs and nixlang.
+
+The core idea of Nix is to enable the declarative definition of packages. Much
+like Node's `package.json` and Composer's `composer.json` it declaratively installs
+packages.
+
+The declarative nature allows for guaranteed reproducibility besides allowing a 
+configurations to be stored in version control softwares. And for this reason I
+was hooked. After years of dealing with config files for various programs, several
+bronken Arch updates, Nix was the way.

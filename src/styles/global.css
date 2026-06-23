@@ -3,7 +3,7 @@
 /* === Base === */
 @layer base {
   body {
-    @apply bg-surface text-white;
+    @apply bg-surface text-white text-lg;
     font-family: system-ui, sans-serif;
   }
 
@@ -15,6 +15,19 @@
     @apply text-primary-dim;
   }
 
+  /* Gradient that fades from transparent at edges to surface in center,
+     so the background (MatrixRain) shows through the sides while content
+     sits on solid black in the middle. */
+  .vignette {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--color-surface) 8%,
+      var(--color-surface) 92%,
+      transparent 100%
+    );
+  }
+
   /* === Headings === */
   h1, h2, h3, h4, h5, h6 {
     @apply text-white font-bold;
@@ -22,31 +35,31 @@
   }
 
   h1 {
-    @apply text-3xl;
+    @apply text-4xl;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-3xl;
     margin-top: 1.75rem;
     margin-bottom: 0.75rem;
   }
 
   h3 {
-    @apply text-xl;
+    @apply text-2xl;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
   h4 {
-    @apply text-lg;
+    @apply text-xl;
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
   }
 
   h5, h6 {
-    @apply text-base;
+    @apply text-lg;
     margin-top: 1rem;
     margin-bottom: 0.25rem;
   }
